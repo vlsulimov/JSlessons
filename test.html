@@ -5,17 +5,34 @@
     <title>Title</title>
     <style>
         .container{
-            display: flex;
-            height: 500px;
+            margin: 0 auto;
+            width: 800px;
+            height: 300px;
             padding: 30px;
         }
+        .header{
+            height: 10%;
+            background-color: cornsilk;
+        }
+        .footer{
+            height: 10%;
+            background-color: cornsilk;
+        }
+        .content{
+            display: flex;
+            height: 100%;
+            flex-direction: row;
+        }
+        .leftlist, .rightlist{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
         #my_friends, #list_friends{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
             overflow: auto;
-            border: black 1px solid;
-            flex-basis: 50%;
-            flex-wrap: wrap;
-            align-content: start;
-            padding: 15px;
         }
         .friend{
             display: flex;
@@ -31,8 +48,22 @@
 </head>
 <body>
 <div class="container">
-    <div id="my_friends"></div>
-    <div id="list_friends"></div>
+    <div class="header"></div>
+    <div class="content">
+        <div class="leftlist">
+            <div class="filter-block">
+                <input type="text" class="filter-name-input" placeholder="Начните вводить имя друга">
+            </div>
+            <div id="my_friends"></div>
+        </div>
+        <div class="rightlist">
+            <div class="filter-block">
+                <input type="text" class="filter-name-input" placeholder="Начните вводить имя друга">
+            </div>
+            <div id="list_friends"></div>
+        </div>
+    </div>
+    <div class="footer"></div>
 </div>
 <script src="first.js"></script>
 <script src="model.js"></script>
@@ -44,7 +75,7 @@
     Model.login(7135923, 2 | 8192)
         .then();
     Controoler.friends();
-    const cont = document.querySelector('.container');
+    const cont = document.querySelector('.content');
     cont.addEventListener('click', e => {
         let target = e.target;
         if (target.tagName === 'BUTTON') {
@@ -64,7 +95,17 @@
             destination.appendChild(newparent);
         }
     });
+
+    cont.addEventListener('keyup', e => {
+        let target = e.target;
+       if (target.tagName === 'INPUT') {
+           console.log(target.value);
+       }
+    });
+
+
     dragdrop.druganddrop([MyFriends, ListFriends]);
+
 
 
 </script>
