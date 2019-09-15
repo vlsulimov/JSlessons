@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            display: flex;
+            height: 500px;
+            padding: 30px;
+        }
+        #my_friends, #list_friends{
+            overflow: auto;
+            border: black 1px solid;
+            flex-basis: 50%;
+            flex-wrap: wrap;
+            align-content: start;
+            padding: 15px;
+        }
+        .friend{
+            display: flex;
+            cursor: move;
+            border: black dashed 1px;
+        }
+        .img-photo{
+            z-index: -1;
+        }
+    </style>
+    <script src="https://vk.com/js/api/openapi.js"  type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div id="my_friends"></div>
+    <div id="list_friends"></div>
+</div>
+<script src="first.js"></script>
+<script src="model.js"></script>
+<script src="View.js"></script>
+<script src="Controller.js"></script>
+<script>
+    const MyFriends = document.querySelector('#my_friends');
+    const ListFriends = document.querySelector('#list_friends');
+    Model.login(7135923, 2 | 8192)
+        .then();
+    Controoler.friends();
+    const cont = document.querySelector('.container');
+    cont.addEventListener('click', e => {
+        let target = e.target;
+        if (target.tagName === 'BUTTON') {
+            let lastparent = target.parentNode;
+            let newparent = document.createElement('DIV');
+            let destination;
+
+            [MyFriends, ListFriends].forEach(element => {
+                if (lastparent.parentNode !== element) {
+                    destination = element;
+                }
+            });
+            newparent.setAttribute('class', 'friend');
+            newparent.setAttribute('draggable', 'true');
+            newparent.innerHTML = lastparent.innerHTML;
+            lastparent.parentNode.removeChild(lastparent);
+            destination.appendChild(newparent);
+        }
+    });
+    dragdrop.druganddrop([MyFriends, ListFriends]);
+
+
+</script>
+
+<script type="text/x-handlebars-templated" id="friends">
+    {{#each list}}
+    <div class="friend" draggable="true">
+        <img src="{{photo_100}}" class="img-photo">
+        <div>{{first_name}}<br>{{last_name}}</div>
+        <button>Удалить</button>
+    </div>
+    {{/each}}
+</script>
+</body>
+</html>
