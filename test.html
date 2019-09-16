@@ -63,7 +63,9 @@
             <div id="list_friends"></div>
         </div>
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+        <div><button>Сохранить</button></div>
+    </div>
 </div>
 <script src="first.js"></script>
 <script src="model.js"></script>
@@ -80,7 +82,6 @@
         let target = e.target;
         if (target.tagName === 'BUTTON') {
             let lastparent = target.parentNode;
-            let newparent = document.createElement('DIV');
             let destination;
 
             [MyFriends, ListFriends].forEach(element => {
@@ -88,11 +89,8 @@
                     destination = element;
                 }
             });
-            newparent.setAttribute('class', 'friend');
-            newparent.setAttribute('draggable', 'true');
-            newparent.innerHTML = lastparent.innerHTML;
             lastparent.parentNode.removeChild(lastparent);
-            destination.appendChild(newparent);
+            destination.appendChild(lastparent);
         }
     });
 
@@ -102,6 +100,18 @@
            console.log(target.value);
        }
     });
+    const footer = document.querySelector('.footer');
+    footer.addEventListener('click', e => {
+       if (e.target.tagName === 'BUTTON'){
+           let tosave = [];
+           ListFriends.childNodes.forEach(child => {
+               tosave.push(child.getAttribute('friendid'));
+           });
+           console.log(tosave);
+       }
+    });
+
+
 
 
     dragdrop.druganddrop([MyFriends, ListFriends]);
@@ -112,7 +122,7 @@
 
 <script type="text/x-handlebars-templated" id="friends">
     {{#each list}}
-    <div class="friend" draggable="true">
+    <div class="friend" draggable="true" friendid="{{id}}">
         <img src="{{photo_100}}" class="img-photo">
         <div>{{first_name}}<br>{{last_name}}</div>
         <button>Удалить</button>
