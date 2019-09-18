@@ -4,7 +4,6 @@ window.dragdrop = {
 
         zones.forEach(zone => {
             zone.addEventListener('dragstart', e => {
-
                 current = {start: zone, element: e.target};
             });
 

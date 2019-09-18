@@ -4,67 +4,231 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .container{
+        body{
+            background-color: #999999;
+            font-family: FiraSansRegular;
+            font-size: 12px;
+        }
+        .container {
             margin: 0 auto;
-            width: 800px;
-            height: 300px;
-            padding: 30px;
+            width: 40%;
+            height: 500px;
+            max-height: 500px;
         }
-        .header{
-            height: 10%;
-            background-color: cornsilk;
-        }
-        .footer{
-            height: 10%;
-            background-color: cornsilk;
-        }
-        .content{
+
+        .header {
             display: flex;
-            height: 100%;
+            height: 45px;
+
+            flex-direction: row;
+            background-color: #ff8663;
+            border-radius: 10px 10px 0 0;
+            color: #ffffff;
+        }
+
+        .Choosefriends {
+            margin-left: 2%;
+            font-size: 16px;
+            align-self: center;
+        }
+
+        .footer {
+            display: flex;
+            height: 29px;
+            background-color: #f0f0f0;
+            border-radius: 0 0 10px 10px;
+            justify-content: flex-end;
+            padding: 8px;
+        }
+
+        .content {
+            display: flex;
+            height: 82%;
             flex-direction: row;
         }
-        .leftlist, .rightlist{
+
+        .filter-block {
+            display: flex;
+
+            flex-wrap: wrap;
+            height: 45px;
+            flex-direction: column;
+            width: 100%;
+            background-color: #f0f0f0;
+        }
+
+        .filter-name-input {
+            width: 95%;
+            height: 25px;
+            margin-top: auto;
+            margin-bottom: auto;
+            border: 0;
+            border-radius: 10px;
+            align-self: center;
+            text-align: center;
+            outline: none;
+        }
+
+        .list {
             display: flex;
             flex-direction: column;
             width: 50%;
+            background: #ffffff;
         }
-        #my_friends, #list_friends{
+
+        .friends {
             display: flex;
             flex-direction: column;
-            height: 100%;
             overflow: auto;
+            max-height: 100%;
+            min-height: 365px;
+            padding: 0 0 0 15px;
+            border-right: #f0f0f0 2px solid;
         }
-        .friend{
+
+        .friend {
+            min-height: 53px;
             display: flex;
-            cursor: move;
-            border: black dashed 1px;
+            border-bottom: #f0f0f0 2px solid;
         }
-        .img-photo{
-            z-index: -1;
+
+        .friend:hover {
+            background-color: #f0f0f0;
         }
+
+        .img-photo {
+            align-self: center;
+            border-radius: 100%;
+            height: 45px;
+            margin-left: 2%;
+        }
+
+        .fio{
+            align-self: center;
+            margin-left: 2%;
+        }
+
+        .btndelete {
+            margin-left: auto;
+            border: 0;
+            outline: none;
+            align-self: center;
+            cursor: pointer;
+            background-color: #ffffff;
+            /*background-color: #ffffff;*/
+        }
+
+        .btndelete:hover {
+            background-color: #f0f0f0;
+        }
+
+
+        .btnsave {
+            background-color: #ff8663;
+            border: 0;
+            border-radius: 10px;
+            width: 87px;
+            outline: none;
+            color: #ffffff;
+            align-self: stretch;
+            cursor: pointer;
+
+        }
+
+
+        @font-face {
+            font-family: "FiraSansRegular";
+            src: url("fonts/FiraSansRegular/FiraSansRegular.eot");
+            src: url("fonts/FiraSansRegular/FiraSansRegular.eot?#iefix")format("embedded-opentype"),
+            url("fonts/FiraSansRegular/FiraSansRegular.woff") format("woff"),
+            url("fonts/FiraSansRegular/FiraSansRegular.ttf") format("truetype");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: "FiraSansBold";
+            src: url("fonts/FiraSansBold/FiraSansBold.eot");
+            src: url("fonts/FiraSansBold/FiraSansBold.eot?#iefix")format("embedded-opentype"),
+            url("fonts/FiraSansBold/FiraSansBold.woff") format("woff"),
+            url("fonts/FiraSansBold/FiraSansBold.ttf") format("truetype");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: "FiraSansItalic";
+            src: url("fonts/FiraSansItalic/FiraSansItalic.eot");
+            src: url("fonts/FiraSansItalic/FiraSansItalic.eot?#iefix")format("embedded-opentype"),
+            url("fonts/FiraSansItalic/FiraSansItalic.woff") format("woff"),
+            url("fonts/FiraSansItalic/FiraSansItalic.ttf") format("truetype");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: "FiraSansBoldItalic";
+            src: url("fonts/FiraSansBoldItalic/FiraSansBoldItalic.eot");
+            src: url("fonts/FiraSansBoldItalic/FiraSansBoldItalic.eot?#iefix")format("embedded-opentype"),
+            url("fonts/FiraSansBoldItalic/FiraSansBoldItalic.woff") format("woff"),
+            url("fonts/FiraSansBoldItalic/FiraSansBoldItalic.ttf") format("truetype");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+
+
+        .friends::-webkit-scrollbar {
+            background-color:#fff;
+            width:16px
+        }
+
+        /* background of the scrollbar except button or resizer */
+        .friends::-webkit-scrollbar-track {
+            background-color:#fff
+        }
+        .friends::-webkit-scrollbar-track:hover {
+            background-color:#f4f4f4
+        }
+
+        /* scrollbar itself */
+        .friends::-webkit-scrollbar-thumb {
+            background-color:#babac0;
+            border-radius:16px;
+            border:5px solid #fff
+        }
+        .friends::-webkit-scrollbar-thumb:hover {
+            background-color:#a0a0a5;
+            border:4px solid #f4f4f4
+        }
+
+        /* set button(top and bottom of the scrollbar) */
+        .friends::-webkit-scrollbar-button {display:none}
     </style>
-    <script src="https://vk.com/js/api/openapi.js"  type="text/javascript"></script>
+    <script src="https://vk.com/js/api/openapi.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
 </head>
 <body>
 <div class="container">
-    <div class="header"></div>
+    <div class="header">
+        <div class="Choosefriends">Выберите друзей</div>
+    </div>
     <div class="content">
-        <div class="leftlist">
+        <div class="list">
             <div class="filter-block">
                 <input type="text" class="filter-name-input" placeholder="Начните вводить имя друга">
             </div>
-            <div id="my_friends"></div>
+            <div id="my_friends" class="friends"></div>
         </div>
-        <div class="rightlist">
+        <div class="list">
             <div class="filter-block">
                 <input type="text" class="filter-name-input" placeholder="Начните вводить имя друга">
             </div>
-            <div id="list_friends"></div>
+            <div id="list_friends" class="friends"></div>
         </div>
     </div>
     <div class="footer">
-        <div><button>Сохранить</button></div>
+        <button class="btnsave">Сохранить</button>
     </div>
 </div>
 <script src="first.js"></script>
@@ -72,8 +236,22 @@
 <script src="View.js"></script>
 <script src="Controller.js"></script>
 <script>
+    (function(){
+        let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        let isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+        let scrollbarDiv = document.querySelector('.friends');
+        if (!isChrome && !isSafari) {
+            scrollbarDiv.innerHTML = 'You need Webkit browser to run this code';
+        }
+    })();
+
+
+
+
+
     const MyFriends = document.querySelector('#my_friends');
     const ListFriends = document.querySelector('#list_friends');
+    let deleted = [];
     Model.login(7135923, 2 | 8192)
         .then();
     Controoler.friends();
@@ -96,26 +274,92 @@
 
     cont.addEventListener('keyup', e => {
         let target = e.target;
-       if (target.tagName === 'INPUT') {
-           console.log(target.value);
-       }
+        if (target.tagName === 'INPUT') {
+            let node = findfriendsnode(target);
+            removefriend(node, target.value).then();
+            findfriend(node, target.value).then();
+        }
     });
+
+    function findfriendsnode(node) {
+        let result;
+        while (node.classList[0] !== 'list') {
+            node = node.parentNode;
+        }
+        node.childNodes.forEach(element => {
+            if (element.tagName === 'DIV') {
+                if (element.classList[0] === 'friends') {
+                    result = element;
+                }
+            }
+        });
+        return result;
+    }
+
+    function findfriend(listnode, part) {
+        return new Promise((resolve, reject) => {
+            for (let i = 0; i < deleted.length; i++) {
+                let element = deleted[i];
+                if (!isMatching(part, element.first_name, element.last_name)) {
+                    listnode.innerHTML += View.render('friends', {list: [element]});
+                    deleted.splice(deleted.indexOf(element), 1);
+                    i--;
+                }
+            }
+            resolve();
+        });
+    }
+
+    function removefriend(listnode, part) {
+        return new Promise((resolve, reject) => {
+            let img;
+            listnode.childNodes.forEach(friend => {
+                if (friend.tagName === 'DIV') {
+                    friend.childNodes.forEach(node => {
+                        if (node.tagName === 'IMG') {
+                            img = node.src;
+                        }
+                        if (node.tagName === 'DIV') {
+                            [first_name, last_name] = node.innerHTML.split(' ');
+                            console.log(`${part} ${first_name} ${last_name} ${isMatching(part, first_name, last_name)}`);
+                            if (isMatching(part, first_name, last_name)) {
+                                let newobj = {
+                                    id: friend.getAttribute('friendid'),
+                                    first_name: first_name,
+                                    last_name: last_name,
+                                    photo_100: img
+                                };
+                                deleted.push(newobj);
+                                listnode.removeChild(friend);
+                            }
+                        }
+
+                    });
+                }
+            });
+            resolve();
+        });
+    }
+
+    function isMatching(part, full1, full2) {
+        return (full1.toLowerCase().indexOf(part.toLowerCase()) === -1) && (full2.toLowerCase().indexOf(part.toLowerCase()) === -1);
+    }
+
     const footer = document.querySelector('.footer');
     footer.addEventListener('click', e => {
-       if (e.target.tagName === 'BUTTON'){
-           let tosave = [];
-           ListFriends.childNodes.forEach(child => {
-               tosave.push(child.getAttribute('friendid'));
-           });
-           console.log(tosave);
-       }
+        if (e.target.tagName === 'BUTTON') {
+            let tosave = [];
+            ListFriends.childNodes.forEach(child => {
+                if (child.tagName === 'DIV') {
+                    tosave.push(Number(child.getAttribute('friendid')));
+                }
+            });
+            localStorage.setItem('list', JSON.stringify(tosave));
+        }
     });
-
-
 
 
     dragdrop.druganddrop([MyFriends, ListFriends]);
-
 
 
 </script>
@@ -124,8 +368,8 @@
     {{#each list}}
     <div class="friend" draggable="true" friendid="{{id}}">
         <img src="{{photo_100}}" class="img-photo">
-        <div>{{first_name}}<br>{{last_name}}</div>
-        <button>Удалить</button>
+        <div class="fio">{{first_name}} {{last_name}}</div>
+        <button class="btndelete"><img src="krest.png"></button>
     </div>
     {{/each}}
 </script>
