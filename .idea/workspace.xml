@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce4926a9-77a3-470e-91c1-68edf1e1bc2f" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/Controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/first.js" beforeDir="false" afterPath="$PROJECT_DIR$/first.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,6 +16,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< Updated upstream
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -58,6 +63,8 @@
       </file>
     </leaf>
   </component>
+=======
+>>>>>>> Stashed changes
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -76,6 +83,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< Updated upstream
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -123,6 +131,10 @@
       </pane>
     </panes>
   </component>
+=======
+  <component name="ProjectId" id="1QehxTBjLvwt85y5CLn7khH4062" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+>>>>>>> Stashed changes
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -181,6 +193,7 @@
     </task>
     <servers />
   </component>
+<<<<<<< Updated upstream
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="39596000" />
   </component>
@@ -208,6 +221,8 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+=======
+>>>>>>> Stashed changes
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -217,12 +232,6 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -248,6 +257,7 @@
     <history />
     <find-history />
   </component>
+<<<<<<< Updated upstream
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -287,4 +297,6 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> Stashed changes
 </project>
