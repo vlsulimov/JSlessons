@@ -15,7 +15,7 @@ window.Controoler = {
         }
 
 
-        MyFriends.innerHTML = View.render('friends', {list: friends.items});
-        ListFriends.innerHTML = View.render('friends', {list: bestfriends});
+        MyFriends.innerHTML += View.render('friends', {list: friends.items});
+        ListFriends.innerHTML += View.render('friends1', {list: bestfriends});
     }
 };

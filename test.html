@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        body{
+        body {
             background-color: #999999;
             font-family: FiraSansRegular;
-            font-size: 12px;
         }
+
         .container {
             margin: 0 auto;
-            width: 40%;
+            width: 630px;
             height: 500px;
             max-height: 500px;
+            font-size: 12px;
         }
 
         .header {
@@ -49,7 +50,6 @@
 
         .filter-block {
             display: flex;
-
             flex-wrap: wrap;
             height: 45px;
             flex-direction: column;
@@ -58,15 +58,21 @@
         }
 
         .filter-name-input {
-            width: 95%;
+            padding-left: 25px;
+            width: 265px;
             height: 25px;
             margin-top: auto;
             margin-bottom: auto;
             border: 0;
-            border-radius: 10px;
+            border-radius: 15px;
             align-self: center;
-            text-align: center;
             outline: none;
+        }
+
+        .lupa {
+            position: absolute;
+            margin-left: 20px;
+            margin-top: 15px;
         }
 
         .list {
@@ -81,29 +87,41 @@
             flex-direction: column;
             overflow: auto;
             max-height: 100%;
-            min-height: 365px;
-            padding: 0 0 0 15px;
+            min-height: 330px;
+            padding: 0 5px 0 15px;
             border-right: #f0f0f0 2px solid;
         }
 
         .friend {
+            z-index: 100;
             min-height: 53px;
             display: flex;
-            border-bottom: #f0f0f0 2px solid;
+            border-bottom: #f0f0f0 1px solid;
+            padding-right: 5px;
         }
 
         .friend:hover {
             background-color: #f0f0f0;
         }
 
+        .title {
+            margin-left: 15px;
+            margin-right: 15px;
+            padding: 15px 0 5px 0;
+            border-bottom: #f0f0f0 1px solid;
+            font-family: FiraSansRegular;
+        }
+
         .img-photo {
+            z-index: 10;
+            position: relative;
             align-self: center;
             border-radius: 100%;
             height: 45px;
             margin-left: 2%;
         }
 
-        .fio{
+        .fio {
             align-self: center;
             margin-left: 2%;
         }
@@ -114,12 +132,7 @@
             outline: none;
             align-self: center;
             cursor: pointer;
-            background-color: #ffffff;
-            /*background-color: #ffffff;*/
-        }
 
-        .btndelete:hover {
-            background-color: #f0f0f0;
         }
 
 
@@ -132,6 +145,8 @@
             color: #ffffff;
             align-self: stretch;
             cursor: pointer;
+            font-size: 12px;
+            font-family: FiraSansRegular;
 
         }
 
@@ -139,7 +154,7 @@
         @font-face {
             font-family: "FiraSansRegular";
             src: url("fonts/FiraSansRegular/FiraSansRegular.eot");
-            src: url("fonts/FiraSansRegular/FiraSansRegular.eot?#iefix")format("embedded-opentype"),
+            src: url("fonts/FiraSansRegular/FiraSansRegular.eot?#iefix") format("embedded-opentype"),
             url("fonts/FiraSansRegular/FiraSansRegular.woff") format("woff"),
             url("fonts/FiraSansRegular/FiraSansRegular.ttf") format("truetype");
             font-style: normal;
@@ -149,7 +164,7 @@
         @font-face {
             font-family: "FiraSansBold";
             src: url("fonts/FiraSansBold/FiraSansBold.eot");
-            src: url("fonts/FiraSansBold/FiraSansBold.eot?#iefix")format("embedded-opentype"),
+            src: url("fonts/FiraSansBold/FiraSansBold.eot?#iefix") format("embedded-opentype"),
             url("fonts/FiraSansBold/FiraSansBold.woff") format("woff"),
             url("fonts/FiraSansBold/FiraSansBold.ttf") format("truetype");
             font-style: normal;
@@ -159,7 +174,7 @@
         @font-face {
             font-family: "FiraSansItalic";
             src: url("fonts/FiraSansItalic/FiraSansItalic.eot");
-            src: url("fonts/FiraSansItalic/FiraSansItalic.eot?#iefix")format("embedded-opentype"),
+            src: url("fonts/FiraSansItalic/FiraSansItalic.eot?#iefix") format("embedded-opentype"),
             url("fonts/FiraSansItalic/FiraSansItalic.woff") format("woff"),
             url("fonts/FiraSansItalic/FiraSansItalic.ttf") format("truetype");
             font-style: normal;
@@ -169,7 +184,7 @@
         @font-face {
             font-family: "FiraSansBoldItalic";
             src: url("fonts/FiraSansBoldItalic/FiraSansBoldItalic.eot");
-            src: url("fonts/FiraSansBoldItalic/FiraSansBoldItalic.eot?#iefix")format("embedded-opentype"),
+            src: url("fonts/FiraSansBoldItalic/FiraSansBoldItalic.eot?#iefix") format("embedded-opentype"),
             url("fonts/FiraSansBoldItalic/FiraSansBoldItalic.woff") format("woff"),
             url("fonts/FiraSansBoldItalic/FiraSansBoldItalic.ttf") format("truetype");
             font-style: normal;
@@ -177,33 +192,37 @@
         }
 
 
-
         .friends::-webkit-scrollbar {
-            background-color:#fff;
-            width:16px
+            background-color: #fff;
+            width: 9px;
         }
 
         /* background of the scrollbar except button or resizer */
         .friends::-webkit-scrollbar-track {
-            background-color:#fff
+            background-color: #fff
         }
+
         .friends::-webkit-scrollbar-track:hover {
-            background-color:#f4f4f4
+            background-color: #f4f4f4
         }
 
         /* scrollbar itself */
         .friends::-webkit-scrollbar-thumb {
-            background-color:#babac0;
-            border-radius:16px;
-            border:5px solid #fff
+            background-color: #babac0;
+            border-radius: 16px;
+            border: 2px solid #fff;
+            height: 30px;
         }
+
         .friends::-webkit-scrollbar-thumb:hover {
-            background-color:#a0a0a5;
-            border:4px solid #f4f4f4
+            background-color: #a0a0a5;
+            border: 1px solid #f4f4f4
         }
 
         /* set button(top and bottom of the scrollbar) */
-        .friends::-webkit-scrollbar-button {display:none}
+        .friends::-webkit-scrollbar-button {
+            display: none
+        }
     </style>
     <script src="https://vk.com/js/api/openapi.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
@@ -216,15 +235,21 @@
     <div class="content">
         <div class="list">
             <div class="filter-block">
+                <img src="zaLUPA.png" class="lupa">
                 <input type="text" class="filter-name-input" placeholder="Начните вводить имя друга">
             </div>
-            <div id="my_friends" class="friends"></div>
+            <div class="title">Ваши друзья</div>
+            <div id="my_friends" class="friends">
+            </div>
         </div>
         <div class="list">
             <div class="filter-block">
+                <img src="zaLUPA.png" class="lupa">
                 <input type="text" class="filter-name-input" placeholder="Начните вводить имя друга">
             </div>
-            <div id="list_friends" class="friends"></div>
+            <div class="title">Друзья в списке</div>
+            <div id="list_friends" class="friends">
+            </div>
         </div>
     </div>
     <div class="footer">
@@ -236,7 +261,7 @@
 <script src="View.js"></script>
 <script src="Controller.js"></script>
 <script>
-    (function(){
+    (function () {
         let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
         let isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
         let scrollbarDiv = document.querySelector('.friends');
@@ -245,20 +270,18 @@
         }
     })();
 
-
-
-
-
     const MyFriends = document.querySelector('#my_friends');
     const ListFriends = document.querySelector('#list_friends');
-    let deleted = [];
+    let deletedl = [];
+    let deletedr = [];
     Model.login(7135923, 2 | 8192)
         .then();
     Controoler.friends();
     const cont = document.querySelector('.content');
     cont.addEventListener('click', e => {
         let target = e.target;
-        if (target.tagName === 'BUTTON') {
+        if (target.classList[0] === 'btndelete') {
+            target.src = changeimg(target.src);
             let lastparent = target.parentNode;
             let destination;
 
@@ -272,12 +295,27 @@
         }
     });
 
+    function changeimg(image) {
+        let result = '';
+        ['krestik.png', 'plus.png'].forEach(img => {
+            if (img !== image.split('/').pop()) {
+                result = img;
+            }
+        });
+        return result;
+    }
+
     cont.addEventListener('keyup', e => {
         let target = e.target;
         if (target.tagName === 'INPUT') {
             let node = findfriendsnode(target);
-            removefriend(node, target.value).then();
-            findfriend(node, target.value).then();
+            if (node.id === 'my_friends') {
+                findfriend('friends', deletedl, node, target.value).then();
+                removefriend(deletedl, node, target.value).then();
+            } else if (node.id === 'list_friends') {
+                findfriend('friends1', deletedr, node, target.value).then();
+                removefriend(deletedr, node, target.value).then();
+            }
         }
     });
 
@@ -296,12 +334,12 @@
         return result;
     }
 
-    function findfriend(listnode, part) {
+    function findfriend(templ, deleted, listnode, part) {
         return new Promise((resolve, reject) => {
             for (let i = 0; i < deleted.length; i++) {
                 let element = deleted[i];
                 if (!isMatching(part, element.first_name, element.last_name)) {
-                    listnode.innerHTML += View.render('friends', {list: [element]});
+                    listnode.innerHTML += View.render(templ, {list: [element]});
                     deleted.splice(deleted.indexOf(element), 1);
                     i--;
                 }
@@ -310,7 +348,7 @@
         });
     }
 
-    function removefriend(listnode, part) {
+    function removefriend(deleted, listnode, part) {
         return new Promise((resolve, reject) => {
             let img;
             listnode.childNodes.forEach(friend => {
@@ -347,6 +385,7 @@
 
     const footer = document.querySelector('.footer');
     footer.addEventListener('click', e => {
+
         if (e.target.tagName === 'BUTTON') {
             let tosave = [];
             ListFriends.childNodes.forEach(child => {
@@ -356,10 +395,42 @@
             });
             localStorage.setItem('list', JSON.stringify(tosave));
         }
+        alert("Сохранено!");
     });
 
 
-    dragdrop.druganddrop([MyFriends, ListFriends]);
+    druganddrop([MyFriends, ListFriends]);
+
+    function druganddrop(zones) {
+        let current;
+
+        zones.forEach(zone => {
+            zone.addEventListener('dragstart', e => {
+                current = {start: zone, element: e.target};
+            });
+
+            zone.addEventListener('dragover', e => {
+                e.preventDefault();
+            });
+
+            zone.addEventListener('drop', e => {
+                if (current) {
+                    e.preventDefault();
+                    if (zone !== current.start) {
+                        current.element.childNodes.forEach(element => {
+                            if (element.tagName === 'IMG') {
+                                if (element.classList[0] === 'btndelete') {
+                                    element.src = changeimg(element.src);
+                                }
+                            }
+                        });
+                    }
+                    zone.appendChild(current.element);
+                    current = null;
+                }
+            })
+        })
+    }
 
 
 </script>
@@ -369,7 +440,16 @@
     <div class="friend" draggable="true" friendid="{{id}}">
         <img src="{{photo_100}}" class="img-photo">
         <div class="fio">{{first_name}} {{last_name}}</div>
-        <button class="btndelete"><img src="krest.png"></button>
+        <img src="plus.png" class="btndelete">
+    </div>
+    {{/each}}
+</script>
+<script type="text/x-handlebars-templated" id="friends1">
+    {{#each list}}
+    <div class="friend" draggable="true" friendid="{{id}}">
+        <img src="{{photo_100}}" class="img-photo">
+        <div class="fio">{{first_name}} {{last_name}}</div>
+        <img src="krestik.png" class="btndelete">
     </div>
     {{/each}}
 </script>
