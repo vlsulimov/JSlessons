@@ -3,231 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        body {
-            background-color: #999999;
-            font-family: FiraSansRegular;
-        }
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/content.css">
+    <link rel="stylesheet" href="style/footer.css">
+    <link rel="stylesheet" href="style/font.css">
+    <link rel="stylesheet" href="style/scrollbar.css">
 
-        .container {
-            margin: 0 auto;
-            width: 630px;
-            height: 500px;
-            max-height: 500px;
-            font-size: 12px;
-        }
-
-        .header {
-            display: flex;
-            height: 45px;
-
-            flex-direction: row;
-            background-color: #ff8663;
-            border-radius: 10px 10px 0 0;
-            color: #ffffff;
-        }
-
-        .Choosefriends {
-            margin-left: 2%;
-            font-size: 16px;
-            align-self: center;
-        }
-
-        .footer {
-            display: flex;
-            height: 29px;
-            background-color: #f0f0f0;
-            border-radius: 0 0 10px 10px;
-            justify-content: flex-end;
-            padding: 8px;
-        }
-
-        .content {
-            display: flex;
-            height: 82%;
-            flex-direction: row;
-        }
-
-        .filter-block {
-            display: flex;
-            flex-wrap: wrap;
-            height: 45px;
-            flex-direction: column;
-            width: 100%;
-            background-color: #f0f0f0;
-        }
-
-        .filter-name-input {
-            padding-left: 25px;
-            width: 265px;
-            height: 25px;
-            margin-top: auto;
-            margin-bottom: auto;
-            border: 0;
-            border-radius: 15px;
-            align-self: center;
-            outline: none;
-        }
-
-        .lupa {
-            position: absolute;
-            margin-left: 20px;
-            margin-top: 15px;
-        }
-
-        .list {
-            display: flex;
-            flex-direction: column;
-            width: 50%;
-            background: #ffffff;
-        }
-
-        .friends {
-            display: flex;
-            flex-direction: column;
-            overflow: auto;
-            max-height: 100%;
-            min-height: 330px;
-            padding: 0 5px 0 15px;
-            border-right: #f0f0f0 2px solid;
-        }
-
-        .friend {
-            z-index: 100;
-            min-height: 53px;
-            display: flex;
-            border-bottom: #f0f0f0 1px solid;
-            padding-right: 5px;
-        }
-
-        .friend:hover {
-            background-color: #f0f0f0;
-        }
-
-        .title {
-            margin-left: 15px;
-            margin-right: 15px;
-            padding: 15px 0 5px 0;
-            border-bottom: #f0f0f0 1px solid;
-            font-family: FiraSansRegular;
-        }
-
-        .img-photo {
-            z-index: 10;
-            position: relative;
-            align-self: center;
-            border-radius: 100%;
-            height: 45px;
-            margin-left: 2%;
-        }
-
-        .fio {
-            align-self: center;
-            margin-left: 2%;
-        }
-
-        .btndelete {
-            margin-left: auto;
-            border: 0;
-            outline: none;
-            align-self: center;
-            cursor: pointer;
-
-        }
-
-
-        .btnsave {
-            background-color: #ff8663;
-            border: 0;
-            border-radius: 10px;
-            width: 87px;
-            outline: none;
-            color: #ffffff;
-            align-self: stretch;
-            cursor: pointer;
-            font-size: 12px;
-            font-family: FiraSansRegular;
-
-        }
-
-
-        @font-face {
-            font-family: "FiraSansRegular";
-            src: url("fonts/FiraSansRegular/FiraSansRegular.eot");
-            src: url("fonts/FiraSansRegular/FiraSansRegular.eot?#iefix") format("embedded-opentype"),
-            url("fonts/FiraSansRegular/FiraSansRegular.woff") format("woff"),
-            url("fonts/FiraSansRegular/FiraSansRegular.ttf") format("truetype");
-            font-style: normal;
-            font-weight: normal;
-        }
-
-        @font-face {
-            font-family: "FiraSansBold";
-            src: url("fonts/FiraSansBold/FiraSansBold.eot");
-            src: url("fonts/FiraSansBold/FiraSansBold.eot?#iefix") format("embedded-opentype"),
-            url("fonts/FiraSansBold/FiraSansBold.woff") format("woff"),
-            url("fonts/FiraSansBold/FiraSansBold.ttf") format("truetype");
-            font-style: normal;
-            font-weight: normal;
-        }
-
-        @font-face {
-            font-family: "FiraSansItalic";
-            src: url("fonts/FiraSansItalic/FiraSansItalic.eot");
-            src: url("fonts/FiraSansItalic/FiraSansItalic.eot?#iefix") format("embedded-opentype"),
-            url("fonts/FiraSansItalic/FiraSansItalic.woff") format("woff"),
-            url("fonts/FiraSansItalic/FiraSansItalic.ttf") format("truetype");
-            font-style: normal;
-            font-weight: normal;
-        }
-
-        @font-face {
-            font-family: "FiraSansBoldItalic";
-            src: url("fonts/FiraSansBoldItalic/FiraSansBoldItalic.eot");
-            src: url("fonts/FiraSansBoldItalic/FiraSansBoldItalic.eot?#iefix") format("embedded-opentype"),
-            url("fonts/FiraSansBoldItalic/FiraSansBoldItalic.woff") format("woff"),
-            url("fonts/FiraSansBoldItalic/FiraSansBoldItalic.ttf") format("truetype");
-            font-style: normal;
-            font-weight: normal;
-        }
-
-
-        .friends::-webkit-scrollbar {
-            background-color: #fff;
-            width: 9px;
-        }
-
-        /* background of the scrollbar except button or resizer */
-        .friends::-webkit-scrollbar-track {
-            background-color: #fff
-        }
-
-        .friends::-webkit-scrollbar-track:hover {
-            background-color: #f4f4f4
-        }
-
-        /* scrollbar itself */
-        .friends::-webkit-scrollbar-thumb {
-            background-color: #babac0;
-            border-radius: 16px;
-            border: 2px solid #fff;
-            height: 30px;
-        }
-
-        .friends::-webkit-scrollbar-thumb:hover {
-            background-color: #a0a0a5;
-            border: 1px solid #f4f4f4
-        }
-
-        /* set button(top and bottom of the scrollbar) */
-        .friends::-webkit-scrollbar-button {
-            display: none
-        }
-    </style>
     <script src="https://vk.com/js/api/openapi.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
 </head>
 <body>
+
 <div class="container">
     <div class="header">
         <div class="Choosefriends">Выберите друзей</div>
@@ -256,6 +43,7 @@
         <button class="btnsave">Сохранить</button>
     </div>
 </div>
+
 <script src="first.js"></script>
 <script src="model.js"></script>
 <script src="View.js"></script>
@@ -438,18 +226,18 @@
 <script type="text/x-handlebars-templated" id="friends">
     {{#each list}}
     <div class="friend" draggable="true" friendid="{{id}}">
-        <img src="{{photo_100}}" class="img-photo">
+        <img src="{{photo_100}}" class="img-photo" draggable="false">
         <div class="fio">{{first_name}} {{last_name}}</div>
-        <img src="plus.png" class="btndelete">
+        <img src="plus.png" class="btndelete" draggable="false">
     </div>
     {{/each}}
 </script>
 <script type="text/x-handlebars-templated" id="friends1">
     {{#each list}}
     <div class="friend" draggable="true" friendid="{{id}}">
-        <img src="{{photo_100}}" class="img-photo">
+        <img src="{{photo_100}}" class="img-photo" draggable="false">
         <div class="fio">{{first_name}} {{last_name}}</div>
-        <img src="krestik.png" class="btndelete">
+        <img src="krestik.png" class="btndelete" draggable="false">
     </div>
     {{/each}}
 </script>

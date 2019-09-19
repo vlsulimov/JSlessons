@@ -13,8 +13,6 @@ window.Controoler = {
                 i--;
             }
         }
-
-
         MyFriends.innerHTML += View.render('friends', {list: friends.items});
         ListFriends.innerHTML += View.render('friends1', {list: bestfriends});
     }

@@ -1,0 +1,21 @@
+.footer {
+    display: flex;
+    height: 29px;
+    background-color: #f0f0f0;
+    border-radius: 0 0 10px 10px;
+    justify-content: flex-end;
+    padding: 8px;
+}
+
+.btnsave {
+    background-color: #ff8663;
+    border: 0;
+    border-radius: 10px;
+    width: 87px;
+    outline: none;
+    color: #ffffff;
+    align-self: stretch;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: FiraSansRegular;
+}

@@ -1,0 +1,39 @@
+@font-face {
+    font-family: "FiraSansRegular";
+    src: url("../fonts/FiraSansRegular/FiraSansRegular.eot");
+    src: url("../fonts/FiraSansRegular/FiraSansRegular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/FiraSansRegular/FiraSansRegular.woff") format("woff"),
+    url("../fonts/FiraSansRegular/FiraSansRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "FiraSansBold";
+    src: url("../fonts/FiraSansBold/FiraSansBold.eot");
+    src: url("../fonts/FiraSansBold/FiraSansBold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/FiraSansBold/FiraSansBold.woff") format("woff"),
+    url("../fonts/FiraSansBold/FiraSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "FiraSansItalic";
+    src: url("../fonts/FiraSansItalic/FiraSansItalic.eot");
+    src: url("../fonts/FiraSansItalic/FiraSansItalic.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/FiraSansItalic/FiraSansItalic.woff") format("woff"),
+    url("../fonts/FiraSansItalic/FiraSansItalic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "FiraSansBoldItalic";
+    src: url("../fonts/FiraSansBoldItalic/FiraSansBoldItalic.eot");
+    src: url("../fonts/FiraSansBoldItalic/FiraSansBoldItalic.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/FiraSansBoldItalic/FiraSansBoldItalic.woff") format("woff"),
+    url("../fonts/FiraSansBoldItalic/FiraSansBoldItalic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
