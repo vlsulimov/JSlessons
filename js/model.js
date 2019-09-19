@@ -1,4 +1,5 @@
 window.Model = {
+    //Авторизация в вк
     login(appID, permis){
         return new Promise((resolve, reject) => {
             VK.init({
@@ -14,6 +15,7 @@ window.Model = {
             }, permis);
         });
     },
+    //Универсальный метод для запросов в вк
     callApi(method, params){
         params.v = params.v || '5.78';
         return new Promise((resolve, reject) => {
@@ -26,6 +28,7 @@ window.Model = {
             });
         });
     },
+    //Запрос списка друзей
     getFriends(params = {}){
         return this.callApi('friends.get', params);
     }

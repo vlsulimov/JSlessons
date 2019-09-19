@@ -23,7 +23,7 @@
     <div class="content">
         <div class="list">
             <div class="filter-block">
-                <img src="zaLUPA.png" class="lupa">
+                <img src="img/zaLUPA.png" class="lupa">
                 <input type="text" class="filter-name-input" placeholder="Начните вводить имя друга">
             </div>
             <div class="title">Ваши друзья</div>
@@ -32,7 +32,7 @@
         </div>
         <div class="list">
             <div class="filter-block">
-                <img src="zaLUPA.png" class="lupa">
+                <img src="img/zaLUPA.png" class="lupa">
                 <input type="text" class="filter-name-input" placeholder="Начните вводить имя друга">
             </div>
             <div class="title">Друзья в списке</div>
@@ -45,17 +45,17 @@
     </div>
 </div>
 
-<script src="model.js"></script>
-<script src="view.js"></script>
-<script src="controller.js"></script>
-<script src="start.js"></script>
+<script src="js/model.js"></script>
+<script src="js/view.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/start.js"></script>
 <!--Шаблон для левого списка друзей с кнопкой "плюс"-->
 <script type="text/x-handlebars-templated" id="friends">
     {{#each list}}
     <div class="friend" draggable="true" friendid="{{id}}">
         <img src="{{photo_100}}" class="img-photo" draggable="false">
         <div class="fio">{{first_name}} {{last_name}}</div>
-        <img src="plus.png" class="btndelete" draggable="false">
+        <img src="img/plus.png" class="btndelete" draggable="false">
     </div>
     {{/each}}
 </script>
@@ -65,7 +65,7 @@
     <div class="friend" draggable="true" friendid="{{id}}">
         <img src="{{photo_100}}" class="img-photo" draggable="false">
         <div class="fio">{{first_name}} {{last_name}}</div>
-        <img src="krestik.png" class="btndelete" draggable="false">
+        <img src="img/krestik.png" class="btndelete" draggable="false">
     </div>
     {{/each}}
 </script>
