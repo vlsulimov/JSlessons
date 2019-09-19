@@ -1,7 +1,5 @@
 window.Controoler = {
-    async friends() {
-        const MyFriends = document.querySelector('#my_friends');
-        const ListFriends = document.querySelector('#list_friends');
+    async friends(MyFriends, ListFriends) {
         const friends = await Model.getFriends({fields: 'photo_100'});
         const list = JSON.parse(localStorage.getItem('list')) || [];
         const bestfriends = [];
@@ -15,5 +13,8 @@ window.Controoler = {
         }
         MyFriends.innerHTML += View.render('friends', {list: friends.items});
         ListFriends.innerHTML += View.render('friends1', {list: bestfriends});
+
+        //Добавление обработчиков для drag and drop
+        View.druganddrop([MyFriends, ListFriends]);
     }
 };
