@@ -1,5 +1,5 @@
 window.Controoler = {
-    async friends(MyFriends, ListFriends) {
+    async friends() {
         const friends = await Model.getFriends({fields: 'photo_100'});
         const list = JSON.parse(localStorage.getItem('list')) || [];
         const bestfriends = [];
@@ -14,10 +14,10 @@ window.Controoler = {
             }
         }
         //Рендер каждого списка друзей
-        ListFriends.innerHTML += View.render('friends1', {list: bestfriends});
-        MyFriends.innerHTML += View.render('friends', {list: friends.items});
+        $('#friends1').tmpl({list: bestfriends}).appendTo("#list_friends");
+        $('#friends').tmpl({list: friends.items}).appendTo("#my_friends");
 
-        //Добавление обработчиков для drag and drop
-        View.druganddrop([MyFriends, ListFriends]);
+        //Добавляет все обработчки событий
+        Listeners.add();
     }
 };
